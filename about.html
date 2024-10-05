@@ -6,6 +6,7 @@
     <title>BPS-KUSUMA</title>
     <link rel="icon" href="assets/logo-smea.png" />
     <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/combine.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 </head>
@@ -81,5 +82,9 @@
       </div>
       </div>
     </footer>
+    <script>
+      if (window.innerWidth <= 668 || window.innerHeight <= 668 || window.screen.width <= 668 || window.screen.height <= 668 || window.screen.availWidth <= 668 || window.screen.availHeight <= 668) {
+        document.body.innerHTML = '<div class="peringatan"><h1>Peringatan!!!</h1><p>Website ini tidak dapat dibuka pada mobile. Silakan menggunakan komputer atau laptop untuk mengakses.</p></div>';    }
+    </script>  
 </body>
 </html>

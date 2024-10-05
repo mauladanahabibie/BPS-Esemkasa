@@ -1,0 +1,19 @@
+
+.peringatan {
+    background-color: #45aaf2;
+    /* display: flex; */
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+  }
+  .peringatan h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: rgb(247, 33, 33);
+  }
+  .peringatan p {
+    font-size: 1.5em;
+  }
