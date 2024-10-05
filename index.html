@@ -145,8 +145,9 @@
     </div>
   </footer>
   <script>
-    if (window.innerWidth <= 768) {
-      document.body.innerHTML = '<div class="peringatan"><h1>Peringatan!!!</h1><p>Website ini tidak dapat dibuka pada mobile. Silakan menggunakan komputer atau laptop untuk mengakses.</p></div>';
+    window.onload = function() {
+      if (window.innerWidth <= 500) {
+        document.body.innerHTML = '<div class="peringatan"><h1>Peringatan!!!</h1><p>Website ini tidak dapat dibuka pada mobile. Silakan menggunakan komputer atau laptop untuk mengakses.</p></div>';    }
     }
   </script>  
   </body>
