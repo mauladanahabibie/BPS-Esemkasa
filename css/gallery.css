@@ -11,9 +11,6 @@
     --text-dark:#050C9C;
     --text-light:#3572EF;
 }
-body{
-    height: 200vh;
-}   
 nav{
     display: flex;
     justify-content: space-between;
@@ -86,16 +83,26 @@ header h1 span{
     gap: 2rem;
     /* background-color: red; */
 }
-.figure-1 .figure-left img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin: 0 auto;
+.figure-1 .figure-left,
+.figure-1 .figure-right,
+.figure-2 .figure-left,
+.figure-2 .figure-right{
+    flex: 1;
 }
-.figure-1 .figure-right img{
+.figure-1 img,
+.figure-2 img{
     width: 100%;
-    object-fit: cover;
     height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+.figure-1 img:hover,
+.figure-2 img:hover{
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
 }
 .figure-2{
     margin-top: 4rem;
@@ -113,17 +120,6 @@ header h1 span{
     justify-content: space-between;
     gap: 2rem;
     /* background-color: red; */
-}
-.figure-2 .figure-left img{
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
-}
-.figure-2 .figure-right img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin: 0 auto;
 }
 /* Section */
 
@@ -185,4 +181,22 @@ footer{
 }
 .container-footer .card-footer ul li .active{
     font-weight: 600;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 992px) {
+    header h1 { font-size: 48px; }
+    .figure-1, .figure-2 { padding: 0 3rem; gap: 1.5rem; }
+}
+@media (max-width: 768px) {
+    header { height: 40vh; }
+    header h1 { font-size: 36px; }
+    .figure-1, .figure-2 {
+        flex-direction: column;
+        padding: 0 1rem;
+        gap: 1rem;
+        margin-top: 2.5rem;
+    }
+    .figure-1 .figure-left, .figure-2 .figure-right { gap: 1rem; }
+    footer { padding: 20px 16px 40px; margin: 60px auto; }
 }

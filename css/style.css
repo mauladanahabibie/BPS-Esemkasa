@@ -84,29 +84,28 @@ header p {
 header a {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  /* font-size: 20px; */
-  border-radius: 7px;
-  margin: 0 auto;
-  padding: 7px;
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 1rem auto 0;
+  padding: 10px 28px;
   text-decoration: none;
   color: #ffffff;
   background-color: var(--secondary-color);
-  width: 10%;
+  display: inline-block;
+  min-width: 140px;
+  text-align: center;
 }
 /* Services */
 .services {
   text-align: center;
   background-color: #a7e6ff;
-  padding: 3rem 0px;
-  width: 95%;
-  left: 0;
-  right: 0;
-  margin-top: -80px;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
+  padding: 3rem 1.5rem;
+  width: min(95%, 1200px);
+  margin: -80px auto 4rem;
+  position: relative;
   z-index: 1;
   border-radius: 30px;
+  box-shadow: var(--shadow-lg);
 }
 .services h2 {
   font-family: "Montserrat", sans-serif;
@@ -116,26 +115,30 @@ header a {
   margin-bottom: 27px;
 }
 .services .container-service {
-  display: flex;
-  padding: 0 20px;
-  /* gap: 2rem; */
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  padding: 0 12px;
 }
 .services .container-service .card-service {
   background-color: #e3f9f9;
-  border-radius: 30px;
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: rem;
-  width: 250px;
-  height: 250px;
-  /* padding: 1rem; */
+  aspect-ratio: 1 / 1;
+  padding: 1rem;
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+}
+.services .container-service .card-service:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
 }
 .services .container-service img {
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 45%, 100px);
+  height: auto;
 }
 .services .container-service h3 {
   font-family: "Poppins", sans-serif;
@@ -145,32 +148,35 @@ header a {
 }
 
 figure {
-  margin: 32rem 0 13rem 0;
+  margin: 3rem 0 5rem 0;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  gap: 3rem;
   background-color: var(--primary-color);
-  padding: 5rem 8rem 0 8rem;
+  padding: 4rem 8rem 0 8rem;
   overflow: hidden;
+}
+figure .figure-left {
+  flex-shrink: 0;
 }
 figure .figure-left img {
   width: 450px;
-  /* object-fit:cover; */
-  height: 80%;
-  position: relative;
-  bottom: -105px;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 figure .figure-right {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 560px;
 }
 figure .figure-right h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 50px;
   color: var(--text-dark);
-  margin-left: -50%;
   margin-bottom: 25px;
 }
 figure .figure-right h2 span {
@@ -201,7 +207,7 @@ figure .figure-right .card-figure .content-figure h4 {
 figure .figure-right .card-figure .content-figure p {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  width: 400px;
+  max-width: 400px;
   color: var(--text-dark);
 }
 
@@ -245,7 +251,7 @@ figure .figure-right .card-figure .content-figure p {
 footer {
   background-color: var(--primary-color);
   padding: 30px 50px 70px 50px;
-  margin: 100px auto 0 auto;
+  margin: 0 auto;
 }
 .container-footer {
   display: flex;
@@ -299,4 +305,40 @@ footer {
 }
 .container-footer .card-footer ul li .active {
   font-weight: 600;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 992px) {
+  header h1 { font-size: 96px; line-height: 92px; }
+  header h5 { font-size: 36px; }
+  header p { font-size: 20px; }
+  .services h2 { font-size: 26px; }
+  .services .container-service { grid-template-columns: repeat(2, 1fr); max-width: 560px; margin: 0 auto; }
+  figure { padding: 3rem 2rem 0; flex-direction: column; gap: 2rem; text-align: center; }
+  figure .figure-left img { width: min(380px, 100%); }
+  figure .figure-right h2 { font-size: 40px; text-align: center; margin-bottom: 10px; }
+  figure .figure-right .card-figure { justify-content: center; text-align: left; gap: 16px; }
+  figure .figure-right .card-figure .content-figure h4 { font-size: 22px; }
+}
+@media (max-width: 768px) {
+  header { height: 70vh; padding: 0 1rem; }
+  header h1 { font-size: 72px; line-height: 70px; }
+  header h5 { font-size: 26px; }
+  header p { font-size: 16px; }
+  .services { margin-top: -60px; padding: 2rem 1rem; border-radius: 20px; }
+  .services h2 { font-size: 20px; margin-bottom: 18px; }
+  .services .container-service { gap: .75rem; }
+  .services .container-service .card-service { border-radius: 18px; }
+  .services .container-service h3 { font-size: 16px; margin-top: 12px; }
+  figure { padding: 2rem 1rem 0; }
+  figure .figure-right h2 { font-size: 32px; }
+  figure .figure-right .card-figure { flex-direction: row; align-items: flex-start; }
+  figure .figure-right .card-figure .number h3 { font-size: 32px; }
+  figure .figure-right .card-figure .content-figure h4 { font-size: 18px; }
+  figure .figure-right .card-figure .content-figure p { font-size: 14px; }
+  footer { padding: 20px 16px 40px; }
+}
+@media (max-width: 480px) {
+  header h1 { font-size: 56px; line-height: 56px; }
+  .services .container-service { grid-template-columns: 1fr 1fr; }
 }

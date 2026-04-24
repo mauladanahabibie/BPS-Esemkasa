@@ -79,7 +79,8 @@ header h1 span{
 figure .container-figure{
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    align-items: center;
+    gap: 2rem;
     margin-top: 5rem;
     padding: 0 10%;
 }
@@ -101,10 +102,17 @@ figure .container-figure .card-figure p span{
     line-height: 1px;
 }
 figure .container-figure .card-figure img{
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     height: 400px;
     object-fit: cover;
     border-radius: 14px;
+    box-shadow: var(--shadow-md);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+figure .container-figure .card-figure img:hover{
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
 }
 figure .container-figure.dua{
     gap: 3rem;
@@ -116,7 +124,13 @@ figure .container-figure .card-figure-bg{
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
-    border-radius: 7px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+figure .container-figure .card-figure-bg:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 figure .container-figure .card-figure-bg p{
     color: var(--text-dark);
@@ -130,6 +144,29 @@ footer{
     background-color: var(--primary-color);
     padding: 30px 50px 70px 50px;
     margin: 100px auto 0 auto;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 992px) {
+    header h1 { font-size: 48px; }
+    figure .container-figure { padding: 0 6%; gap: 1.5rem; }
+    figure .container-figure .card-figure img { height: 320px; }
+}
+@media (max-width: 768px) {
+    header { height: 40vh; }
+    header h1 { font-size: 36px; }
+    figure .container-figure {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 3rem;
+        padding: 0 1rem;
+    }
+    figure .container-figure.dua { gap: 1rem; }
+    figure .container-figure .card-figure img { height: auto; max-height: 280px; }
+    figure .container-figure .card-figure p,
+    figure .container-figure .card-figure-bg p { font-size: 16px; }
+    figure .container-figure .card-figure-bg { width: 100%; padding: 24px 20px; }
+    footer { padding: 20px 16px 40px; margin-top: 60px; }
 }
 .container-footer{
     display: flex;

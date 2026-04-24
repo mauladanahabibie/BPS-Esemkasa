@@ -1,19 +1,162 @@
+/* =========================================================
+   Shared responsive + design polish for BPS.KUSUMA
+   ========================================================= */
 
-.peringatan {
-    background-color: #45aaf2;
-    /* display: flex; */
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
+:root {
+  --primary-color: #a7e6ff;
+  --secondary-color: #3abef9;
+  --text-dark: #050c9c;
+  --text-light: #3572ef;
+  --shadow-sm: 0 2px 8px rgba(5, 12, 156, 0.08);
+  --shadow-md: 0 8px 24px rgba(5, 12, 156, 0.12);
+  --shadow-lg: 0 16px 40px rgba(5, 12, 156, 0.18);
+  --radius: 14px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ---------- Navbar: hamburger (CSS-only) ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: saturate(150%) blur(8px);
+  box-shadow: var(--shadow-sm);
+  align-items: center;
+}
+nav h2 { margin: 0; }
+nav ul li a {
+  position: relative;
+  transition: color .25s ease;
+}
+nav ul li a:hover { color: var(--text-light); }
+nav ul li a.active::after,
+nav ul li a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--secondary-color);
+}
+
+.nav-toggle { display: none; }
+.nav-hamburger {
+  display: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+  margin: auto 0;
+}
+.nav-hamburger span {
+  position: absolute;
+  left: 4px; right: 4px;
+  height: 3px;
+  background: var(--text-dark);
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .2s ease, top .3s ease;
+}
+.nav-hamburger span:nth-child(1) { top: 8px; }
+.nav-hamburger span:nth-child(2) { top: 15px; }
+.nav-hamburger span:nth-child(3) { top: 22px; }
+.nav-toggle:checked + .nav-hamburger span:nth-child(1) {
+  top: 15px; transform: rotate(45deg);
+}
+.nav-toggle:checked + .nav-hamburger span:nth-child(2) { opacity: 0; }
+.nav-toggle:checked + .nav-hamburger span:nth-child(3) {
+  top: 15px; transform: rotate(-45deg);
+}
+
+/* ---------- Global button polish ---------- */
+header a,
+.contact-right form button {
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+  box-shadow: var(--shadow-sm);
+}
+header a:hover,
+.contact-right form button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--text-light) !important;
+}
+
+/* ---------- Footer polish ---------- */
+.container-footer .card-footer ul li a,
+.container-footer .card-footer ul li {
+  transition: color .2s ease, transform .2s ease;
+}
+.container-footer .card-footer ul li a:hover { color: var(--text-light); }
+.container-footer .card-footer .sosmed a {
+  display: inline-flex;
+  transition: transform .2s ease;
+}
+.container-footer .card-footer .sosmed a:hover { transform: translateY(-3px); }
+
+/* ---------- Responsive breakpoints ---------- */
+
+/* Tablet */
+@media (max-width: 992px) {
+  nav { padding: 1rem 1.25rem; }
+  nav h2 { font-size: 28px !important; }
+  nav ul li a { font-size: 17px !important; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    padding: .85rem 1rem;
+    position: relative;
   }
-  .peringatan h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    color: rgb(247, 33, 33);
+  .nav-hamburger { display: block; }
+
+  nav ul {
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .25rem !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, padding .25s ease;
+    padding: 0;
   }
-  .peringatan p {
-    font-size: 1.5em;
+  .nav-toggle:checked ~ ul {
+    max-height: 500px;
+    padding: .75rem 0 .25rem;
   }
+  nav ul li { width: 100%; }
+  nav ul li a {
+    display: block;
+    padding: .65rem .25rem;
+    width: 100%;
+    font-size: 16px !important;
+  }
+  nav ul li a.active::after,
+  nav ul li a:hover::after { display: none; }
+
+  /* Footer stacks */
+  footer {
+    padding: 20px 16px 40px !important;
+  }
+  .container-footer {
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 24px 8px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  nav h2 { font-size: 24px !important; }
+}
+
+/* Legacy blocker (kept in case any page retains old script) */
+.peringatan { display: none; }

@@ -13,6 +13,8 @@
 <body>
         <nav>
           <h2>BPS.<span>KUSUMA</span></h2>
+          <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+          <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></label>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="service.html">Services</a></li>
@@ -82,9 +84,5 @@
       </div>
       </div>
     </footer>
-    <script>
-      if (window.innerWidth <= 600 || window.innerHeight <= 300 || window.screen.width <= 600 || window.screen.height <= 300 || window.screen.availWidth <= 600 || window.screen.availHeight <= 300) {
-        document.body.innerHTML = '<div class="peringatan"><h1>Peringatan!!!</h1><p>Website ini tidak dapat dibuka pada mobile. Silakan menggunakan komputer atau laptop untuk mengakses.</p></div>';    }
-    </script>  
 </body>
 </html>
